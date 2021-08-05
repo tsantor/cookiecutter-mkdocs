@@ -14,3 +14,9 @@ watch: bake
 replay: BAKE_OPTIONS=--replay
 replay: watch
 	;
+
+
+env:
+	pyenv virtualenv 3.9.4 cookiecutter_mkdocs_env && pyenv local cookiecutter_mkdocs_env
+	python -m pip install -U pip -r requirements_dev.txt
+

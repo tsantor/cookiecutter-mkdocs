@@ -12,10 +12,10 @@ If you have not run `docker-compose build` or `docker-compose up` before, it wil
 Open [http://localhost:8989](http://localhost:8989) in your browser.
 
 ## Building your site
-When you're finished editing, you can build a static site from your Markdown files with:
+With the Docker container running, run the following in another terminal from within the project directory:
 
 ```bash
-make up
+make build
 ```
 
 ## Deploy
