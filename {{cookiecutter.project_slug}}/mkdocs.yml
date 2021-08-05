@@ -1,0 +1,87 @@
+site_name: {{cookiecutter.project_name}} Docs
+site_author: {{cookiecutter.full_name}}
+use_directory_urls: true
+# google_analytics: ['UA-ID', 'domain.com']
+
+
+copyright: Copyright &copy; 2021 – X Studios™, Inc.
+
+# Configuration
+theme:
+    name: "material"
+    palette:
+        scheme: default
+    icon:
+        repo: fontawesome/brands/git-alt
+    favicon: images/favicon.png
+    logo: img/x_x_white.svg
+    font:
+        text: Raleway
+        code: Roboto Mono
+    features:
+        - instant
+        - tabs
+
+# Extensions
+markdown_extensions:
+    - markdown.extensions.admonition
+    - markdown.extensions.attr_list
+    # - markdown.extensions.codehilite:
+    #       linenums: false
+    - fontawesome_markdown
+    - pymdownx.betterem:
+          smart_enable: all
+    - pymdownx.details
+    - pymdownx.highlight:
+          use_pygments: true
+          linenums: false
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist:
+          custom_checkbox: true
+    - pymdownx.tilde
+    - markdown.extensions.sane_lists
+    - markdown.extensions.smarty
+    # - markdown.extensions.tables
+    - markdown.extensions.toc:
+          toc_depth: 2
+          permalink: true
+
+# Plugins
+plugins:
+    - search
+    - awesome-pages
+    - minify:
+          minify_html: true
+          minify_js: true
+
+# Customization
+extra_css:
+    - css/extra.css
+    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
+    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
+    - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
+    - https://use.typekit.net/pkv5qkr.css
+
+extra_javascript:
+    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
+    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
+
+# Page tree
+
+nav:
+  - Getting Started:
+    - index.md
+
+
+extra:
+    social:
+        - icon: fontawesome/brands/twitter
+          link: https://twitter.com/xstudios
+        - icon: fontawesome/brands/facebook
+          link: https://facebook.com/xstudiosinc
+        - icon: fontawesome/brands/instagram
+          link: https://instagram.com/xstudios
