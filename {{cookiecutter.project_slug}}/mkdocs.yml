@@ -1,7 +1,7 @@
 site_name: {{cookiecutter.project_name}} Docs
 site_author: {{cookiecutter.full_name}}
 use_directory_urls: true
-# google_analytics: ['UA-ID', 'domain.com']
+# google_analytics: ['UA-ID', '{{cookiecutter.domain}}']
 
 
 copyright: Copyright &copy; 2021 – X Studios™, Inc.
@@ -24,13 +24,18 @@ theme:
 
 # Extensions
 markdown_extensions:
-    - markdown.extensions.admonition
-    - markdown.extensions.attr_list
-    # - markdown.extensions.codehilite:
-    #       linenums: false
-    - fontawesome_markdown
+    - abbr
+    - attr_list
+    - def_list
+    - tables
+    - admonition
+    - sane_lists
+    - smarty
+    - toc:
+          toc_depth: 2
+          permalink: true
     - pymdownx.betterem:
-          smart_enable: all
+        smart_enable: all
     - pymdownx.details
     - pymdownx.highlight:
           use_pygments: true
@@ -40,15 +45,11 @@ markdown_extensions:
     - pymdownx.mark
     - pymdownx.smartsymbols
     - pymdownx.superfences
-    - pymdownx.tasklist:
-          custom_checkbox: true
+    - pymdownx.tabbed
     - pymdownx.tilde
-    - markdown.extensions.sane_lists
-    - markdown.extensions.smarty
-    # - markdown.extensions.tables
-    - markdown.extensions.toc:
-          toc_depth: 2
-          permalink: true
+    - pymdownx.emoji:
+          emoji_index: !!python/name:materialx.emoji.twemoji
+          emoji_generator: !!python/name:materialx.emoji.to_svg
 
 # Plugins
 plugins:
@@ -61,20 +62,16 @@ plugins:
 # Customization
 extra_css:
     - css/extra.css
-    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
-    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
-    - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
-    - https://use.typekit.net/pkv5qkr.css
+    # - https://domain.com/styles.css
 
 extra_javascript:
-    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js
-    # - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/default.min.css
+    # - https://domain.com/javascript.js
 
 # Page tree
-
 nav:
   - Getting Started:
     - index.md
+    - help.md
 
 
 extra:
