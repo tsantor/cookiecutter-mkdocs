@@ -26,7 +26,6 @@ theme:
 markdown_extensions:
     - abbr
     - attr_list
-    - def_list
     - tables
     - admonition
     - sane_lists

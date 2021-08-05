@@ -2,7 +2,7 @@
 
 {{cookiecutter.project_short_description}}
 
-## Headers
+## Header
 Lorem ipsum dolar sit amet.
 
 !!! note
@@ -31,13 +31,17 @@ The HTML specification is maintained by the W3C.
     2. Donec vitae suscipit est
     3. Nulla tempor lobortis orci
 
-## Table
+## Tables
 
 | Method      | Description                          |
 | ----------- | ------------------------------------ |
 | `GET`       | :material-check:     Fetch resource  |
 | `PUT`       | :material-update:    Update resource |
 | `DELETE`    | :material-close:     Delete resource |
+
+!!! note "Icons"
+
+    **Wait! Icons?** Yup! Easily find and use 8,000+ icons [here](https://squidfunk.github.io/mkdocs-material/reference/icons-emojis/#search).
 
 ## Code Examples
 
@@ -47,5 +51,5 @@ class Something:
     """Comment"""
 
     def __init__(self):
-        ...
+        print("Something does absolutely nothing")
 ```
