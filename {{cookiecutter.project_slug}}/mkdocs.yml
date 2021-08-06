@@ -61,6 +61,7 @@ plugins:
 # Customization
 extra_css:
     - css/extra.css
+    - https://use.typekit.net/pkv5qkr.css
     # - https://domain.com/styles.css
 
 extra_javascript:
