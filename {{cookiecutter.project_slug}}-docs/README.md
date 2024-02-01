@@ -23,8 +23,6 @@ With the Docker container running, run the following in another terminal from wi
 
 ```bash
 make deploy
-# or
-./build.sh
 ```
 
 **Note:** You will need your SSH key on the server in order to do this step.

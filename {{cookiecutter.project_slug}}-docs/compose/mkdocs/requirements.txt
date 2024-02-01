@@ -5,3 +5,4 @@ mkdocs-minify-plugin
 mkdocs-redirects
 pymdown-extensions
 pygments
+fontawesome-markdown

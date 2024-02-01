@@ -4,13 +4,15 @@ use_directory_urls: true
 # google_analytics: ['UA-ID', '{{cookiecutter.domain}}']
 
 
-copyright: Copyright &copy; 2021 – X Studios™, Inc.
+copyright: Copyright &copy; 20XX – X Studios™, Inc.
 
 # Configuration
 theme:
     name: "material"
     palette:
         scheme: default
+        primary: custom
+        accent: custom
     icon:
         repo: fontawesome/brands/git-alt
     favicon: images/favicon.png
@@ -19,8 +21,14 @@ theme:
         text: Raleway
         code: Roboto Mono
     features:
-        - instant
-        - tabs
+        - navigation.tabs
+        - navigation.instant
+        - navigation.tabs.sticky
+        - navigation.top
+        # - navigation.footer
+        # - navigation.tracking
+        # - toc.integrate
+        - content.code.copy
 
 # Extensions
 markdown_extensions:
@@ -30,6 +38,7 @@ markdown_extensions:
     - admonition
     - sane_lists
     - smarty
+    - meta
     - toc:
           toc_depth: 2
           permalink: true
@@ -44,11 +53,10 @@ markdown_extensions:
     - pymdownx.mark
     - pymdownx.smartsymbols
     - pymdownx.superfences
-    - pymdownx.tabbed
+    - pymdownx.tabbed:
+        alternate_style: true
     - pymdownx.tilde
-    - pymdownx.emoji:
-          emoji_index: !!python/name:materialx.emoji.twemoji
-          emoji_generator: !!python/name:materialx.emoji.to_svg
+    # - fontawesome_markdown
 
 # Plugins
 plugins:
@@ -61,10 +69,11 @@ plugins:
 # Customization
 extra_css:
     - css/extra.css
-    - https://use.typekit.net/pkv5qkr.css
+    # - https://use.typekit.net/pkv5qkr.css
     # - https://domain.com/styles.css
+    # - https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css
 
-extra_javascript:
+# extra_javascript:
     # - https://domain.com/javascript.js
 
 # Page tree
@@ -75,6 +84,7 @@ nav:
 
 
 extra:
+    generator: false
     social:
         - icon: fontawesome/brands/twitter
           link: https://twitter.com/xstudios
