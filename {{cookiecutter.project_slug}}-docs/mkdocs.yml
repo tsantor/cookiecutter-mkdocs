@@ -29,6 +29,7 @@ theme:
         # - navigation.tracking
         # - toc.integrate
         - content.code.copy
+        - content.code.annotate
 
 # Extensions
 markdown_extensions:
@@ -52,11 +53,19 @@ markdown_extensions:
     - pymdownx.magiclink
     - pymdownx.mark
     - pymdownx.smartsymbols
-    - pymdownx.superfences
+    - pymdownx.superfences:
+          preserve_tabs: true
+          custom_fences:
+            # Mermaid diagrams
+            - name: mermaid
+              class: mermaid
+              format: !!python/name:pymdownx.superfences.fence_code_format
     - pymdownx.tabbed:
         alternate_style: true
     - pymdownx.tilde
-    # - fontawesome_markdown
+    - pymdownx.emoji:
+          emoji_index: !!python/name:material.extensions.emoji.twemoji
+          emoji_generator: !!python/name:material.extensions.emoji.to_sv
 
 # Plugins
 plugins:
@@ -65,6 +74,8 @@ plugins:
     - minify:
           minify_html: true
           minify_js: true
+          minify_css: true
+          cache_safe: true
 
 # Customization
 extra_css:

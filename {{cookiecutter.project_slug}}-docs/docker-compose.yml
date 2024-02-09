@@ -2,14 +2,12 @@ version: '3'
 
 services:
   mkdocs:
-    build:
-      context: .
-      dockerfile: ./compose/mkdocs/Dockerfile
+    build: .
     image: {{cookiecutter.project_slug}}_mkdocs
     container_name: {{cookiecutter.project_slug}}_mkdocs
-    volumes:
-      - .:/app
     ports:
       - "8989:8989"
-    command: /entrypoint
+    volumes:
+      - .:/docs
+    command: serve --dev-addr=0.0.0.0:8989
     restart: always
