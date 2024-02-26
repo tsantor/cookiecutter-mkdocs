@@ -1,3 +1,6 @@
+# -----------------------------------------------------------------------------
+# Generate help output when running just `make`
+# -----------------------------------------------------------------------------
 .DEFAULT_GOAL := help
 
 define PRINT_HELP_PYSCRIPT
@@ -16,11 +19,18 @@ help:
 
 # -----------------------------------------------------------------------------
 
+
 up:  ## docker up
 	docker-compose up
 
 down:  # docker down
 	docker-compose down
+
+optimize_pngs:  ## optimize PNGs
+	find . -name 'docs/img/*.png' -exec pngquant 64 --ext .png -f --skip-if-larger {} \;
+
+optimize_jpgs:  ## optimize JPGs
+	open -a ImageOptim docs/img
 
 build:  ## build docs
 	docker exec -it {{cookiecutter.project_slug}}_mkdocs mkdocs build

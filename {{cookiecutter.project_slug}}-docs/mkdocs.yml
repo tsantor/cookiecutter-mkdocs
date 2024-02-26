@@ -3,8 +3,10 @@ site_author: {{cookiecutter.full_name}}
 use_directory_urls: true
 # google_analytics: ['UA-ID', '{{cookiecutter.domain}}']
 
-
 copyright: Copyright &copy; 20XX – X Studios™, Inc.
+
+repo_url: https://bitbucket.org/xstudios/projectname-docs/
+repo_name: Bitbucket
 
 # Configuration
 theme:
