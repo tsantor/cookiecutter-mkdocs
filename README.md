@@ -1,11 +1,5 @@
 # Cookiecutter MkDocs
 
-## Features
-
-* Auto Build
-* Auto Deploy
-
-
 ## Quickstart
 
 Install the latest Cookiecutter if you haven't installed it yet (this requires
@@ -23,3 +17,5 @@ As a developer, it is assumed you have `pyenv` and `make` installed.
 
     make env
 
+## Not Exactly What You Want?
+This is what I want. _It might not be what you want_. If you have differences in your preferred setup, I encourage you to fork this to create your own version.
