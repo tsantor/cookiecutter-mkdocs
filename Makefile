@@ -21,23 +21,42 @@ help:
 # Variables
 # -----------------------------------------------------------------------------
 
-python_version=3.9.11
-venv=cookiecutter-mkdocs_env
-
 BAKE_OPTIONS=--no-input
+BUILD_DIR=mkdocs_boilerplate-docs
 
 # -----------------------------------------------------------------------------
 # Environment
 # -----------------------------------------------------------------------------
 
-env:  ## Install virtualenv for development (uses `pyenv`)
-	pyenv virtualenv ${python_version} ${venv} && pyenv local ${venv}
-	python3 -m pip install -U pip -r requirements_dev.txt
+env:  ## Create virtual environment (uses `uv`)
+	uv venv
 
 env_remove:  ## Remove virtual environment
-	pyenv uninstall -f ${venv}
+	rm -rf .venv
 
 env_from_scratch: env_remove env  ## Create environment from scratch
+
+# -----------------------------------------------------------------------------
+# Pip
+# -----------------------------------------------------------------------------
+
+pip_install:  ## Install requirements
+	uv add cookiecutter
+
+pip_install_dev: ## Install development requirements
+	uv add pip wheel build ruff pre-commit watchdog[watchmedo] --group=dev
+
+pip_install_test: ## Install test requirements
+	uv add pytest --group=test
+
+pip_install_all: pip_install pip_install_dev pip_install_test ## Install all requirements
+
+pip_install_editable:  ## Install editable package
+	uv pip install -e .
+	# uv run pre-commit install
+
+pip_list:  ## Run pip list
+	uv pip list
 
 # -----------------------------------------------------------------------------
 # Cookiecutter
@@ -54,6 +73,6 @@ replay: watch
 	;
 
 eat:  ## Remove generated project
-	rm -rf mkdocs_boilerplate-docs
+	rm -rf ${BUILD_DIR}
 
 # -----------------------------------------------------------------------------

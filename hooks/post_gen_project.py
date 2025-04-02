@@ -8,6 +8,6 @@ def remove_file(filepath):
     os.remove(os.path.join(PROJECT_DIRECTORY, filepath))
 
 
-if __name__ == '__main__':
-    print('POST GEN')
-
+if __name__ == "__main__":
+    # print(PROJECT_DIRECTORY)
+    print("POST GEN")

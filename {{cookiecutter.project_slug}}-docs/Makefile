@@ -17,23 +17,63 @@ export PRINT_HELP_PYSCRIPT
 help:
 	@python3 -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
 
+.PHONY: build
+
+PROJECT={{cookiecutter.project_slug}}_mkdocs
+
+# -----------------------------------------------------------------------------
+# Docker Development (if you have Docker installed)
 # -----------------------------------------------------------------------------
 
+up_build:  ## Build docker images
+	docker compose up --build
 
-up:  ## docker up
-	docker-compose up
+up:  ## Docker up
+	docker compose up
 
-down:  # docker down
-	docker-compose down
+down:  # Docker down
+	docker compose down
 
-optimize_pngs:  ## optimize PNGs
+build:  ## Build docs
+	docker exec -it ${PROJECT} mkdocs build
+
+# -----------------------------------------------------------------------------
+# Local Development (if you have UV installed)
+# -----------------------------------------------------------------------------
+
+env:  ## Create virtual environment (uses `uv`)
+	uv venv
+
+env_remove:  ## Remove virtual environment
+	rm -rf .venv
+
+env_from_scratch: env_remove env  ## Create environment from scratch
+
+pip_install:  ## Install dependencies
+	uv pip install .
+
+mkdocs_serve: ## Serve docs for development
+	mkdocs serve --dev-addr=0.0.0.0:8989
+
+mkdocs_build:  ## Build docs
+	mkdocs build
+
+# -----------------------------------------------------------------------------
+# Optimize images
+# -----------------------------------------------------------------------------
+
+optimize_pngs:  ## Optimize PNGs
 	find . -name 'docs/img/*.png' -exec pngquant 64 --ext .png -f --skip-if-larger {} \;
 
-optimize_jpgs:  ## optimize JPGs
+optimize_jpgs:  ## Optimize JPGs
 	open -a ImageOptim docs/img
 
-build:  ## build docs
-	docker exec -it {{cookiecutter.project_slug}}_mkdocs mkdocs build
+# -----------------------------------------------------------------------------
+# Deploy
+# -----------------------------------------------------------------------------
 
-deploy: build  ## deploy to server
-	rsync -avzp --delete site/ xstudios@{{cookiecutter.domain}}:~/{{cookiecutter.project_slug}}/site
+deploy:  ## Deploy to server
+	bash deploy.sh
+
+# deploy: build  ## deploy to server
+# 	rsync -avzp --delete site/ xstudios@{{cookiecutter.domain}}:~/{{cookiecutter.project_slug}}/site
