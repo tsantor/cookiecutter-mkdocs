@@ -1,5 +1,5 @@
 site_name: {{ cookiecutter.project_name }} Docs
-site_author: {{ cookiecutter.full_name }}
+site_author: {{ cookiecutter.author_name }}
 use_directory_urls: true
 # google_analytics: ['UA-ID', '{{ cookiecutter.domain }}']
 
@@ -73,6 +73,8 @@ plugins:
           minify_js: true
           minify_css: true
           cache_safe: true
+    - optimmize
+    # - privacy
 
 # Customization
 extra_css:
